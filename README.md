@@ -27,7 +27,9 @@ pygraphviz==1.9
 There are three kinds of objects:
 
 1.) gods - multithreaded genetic programming
+
 2.) spirits - neural networks / models
+
 3.) prophets - interface for spirits, data keepers
 
 
