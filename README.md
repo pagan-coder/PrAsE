@@ -49,11 +49,9 @@ Usually, the flow of the code is following:
 
 7.) Prophet should make predictions based on a small portion of previous or expected events
 
-Both the result of the evolutionary algorithm and the model layers can be printed to files using `draw()` methods.
+Both the result of the evolutionary algorithm (see on the picture) and the model layers can be printed to files using `draw()` methods.
 
 ![Genetic programming](./geneticprogramming.png "Genetic programming")
-
-![Model](./model.png "Model")
 
 See the code and comments in `template.py`
 
@@ -97,6 +95,10 @@ loop.run_until_complete(
 	apollo.inspire(pythia)
 )
 ```
+
+## Example of a built model
+
+![Model](./model.png "Model")
 
 
 ## Further development
