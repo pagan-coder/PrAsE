@@ -51,6 +51,10 @@ Usually, the flow of the code is following:
 
 Both the result of the evolutionary algorithm and the model layers can be printed to files using `draw()` methods.
 
+![Genetic programming](./geneticprogramming.png "Genetic programming")
+
+![Model](./model.png "Model")
+
 See the code and comments in `template.py`
 
 
