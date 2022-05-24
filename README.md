@@ -36,12 +36,20 @@ There are three kinds of objects:
 Usually, the flow of the code is following:
 
 1.) Instantiate a god with parameters
+
 2.) Instantiate a prophet with parameters (a spirit is automatically added)
+
 3.) Check if the prophet is inspired (the model is already built and ready)
+
 4.) Prophet should observe a real-time data stream, which can be all kinds of events such as security alerts, logs etc.
+
 5.) Prophet should meditate to automatically prepare training and testing datasets
+
 6.) God should inspire a prophet, build the model inside the prophet's spirit
+
 7.) Prophet should make predictions based on a small portion of previous or expected events
+
+Both the result of the evolutionary algorithm and the model layers can be printed to files using `draw()` methods.
 
 See the code and comments in `template.py`
 
