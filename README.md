@@ -96,7 +96,7 @@ loop.run_until_complete(
 )
 ```
 
-## Example of a built model
+## Example of a built neural network model
 
 ![Model](./model.png "Model")
 
