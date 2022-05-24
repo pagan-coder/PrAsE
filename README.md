@@ -55,6 +55,8 @@ Both the result of the evolutionary algorithm (see on the picture) and the model
 
 ![Genetic programming](./geneticprogramming.png "Genetic programming")
 
+Every built model is automatically saved into a file.
+
 See the code and comments in `template.py`
 
 
