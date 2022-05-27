@@ -28,7 +28,7 @@ class Prophet(object):
 		pass
 
 
-	def predict(self, events):
+	def predict(self, events=None):
 		pass
 
 
@@ -133,12 +133,26 @@ class TimeProphet(Prophet):
 		self.Spirit.TestOutput = output_data_array[-for_test:]
 
 
-	def predict(self, events):
-		start_time = events[0][self.TimestampField]
-		predict_for = numpy.zeros((1, self.Span, 1), dtype=numpy.int64)
+	def predict(self, events=None):
+		"""
+		Predict for given events or for the last span.
+		"""
 
-		for event in events:
-			event_position = (event[self.TimestampField] - start_time) // self.Resolution
-			predict_for[event_position // self.Span][event_position % self.Span][0] += 1
+		if events is None:
+			data = [self.Data[-self.Span:]]
+			predict_for = numpy.asarray(data, dtype=numpy.int64)
+			predict_for = predict_for.reshape(
+				predict_for.shape[0],
+				self.Span,
+				1
+			)
+
+		else:
+			start_time = events[0][self.TimestampField]
+			predict_for = numpy.zeros((1, self.Span, 1), dtype=numpy.int64)
+
+			for event in events:
+				event_position = (event[self.TimestampField] - start_time) // self.Resolution
+				predict_for[event_position // self.Span][event_position % self.Span][0] += 1
 
 		return self.Spirit.predict(predict_for)

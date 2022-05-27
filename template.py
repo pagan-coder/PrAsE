@@ -77,13 +77,10 @@ if __name__ == "__main__":
 	print("Drawing Pythia to files.")
 	pythia.draw()
 
+	# The following code could happen once per some time period (more often than the meditation/inspiration)
+
 	# Predict the following values
 	print("Pythia is making a prediction.")
-	predicted_value = pythia.predict([
-		{"timestamp": current_time + 100 + 10},
-		{"timestamp": current_time + 100 + 15},
-		{"timestamp": current_time + 100 + 20},
-		{"timestamp": current_time + 100 + 25},
-		{"timestamp": current_time + 100 + 30},
-	])
+	predicted_value = pythia.predict()
+
 	print("The predicted value from Pythia is: '{}'.".format(predicted_value))
