@@ -18,7 +18,7 @@ class God(object):
 		population_size=10,
 		generations_count=10,
 		tournament_size=7,
-		tree_maximum_height=5,
+		max_init_individuals=5,
 		crossover_probability=0.6,
 		mutation_probability=0.2,
 		division=1,
@@ -26,7 +26,7 @@ class God(object):
 		self.PopulationSize = population_size
 		self.GenerationsCount = generations_count
 		self.TournamentSize = tournament_size
-		self.TreeMaximumHeight = tree_maximum_height
+		self.MaximumInitIndividuals = max_init_individuals
 		self.CrossoverProbability = crossover_probability
 		self.MutationProbability = mutation_probability
 		self.Division = division
@@ -134,13 +134,13 @@ class God(object):
 			return result,
 
 		toolbox = deap.base.Toolbox()
-		toolbox.register("expr_init", deap.gp.genFull, pset=primitive_set, min_=1, max_=self.TreeMaximumHeight)
+		toolbox.register("expr_init", deap.gp.genFull, pset=primitive_set, min_=1, max_=self.MaximumInitIndividuals)
 		toolbox.register("individual", deap.tools.initIterate, deap.creator.Individual, toolbox.expr_init)
 		toolbox.register("population", deap.tools.initRepeat, list, toolbox.individual)
 		toolbox.register("evaluate", evaluate)
 		toolbox.register("select", deap.tools.selTournament, tournsize=self.TournamentSize)
 		toolbox.register("mate", deap.gp.cxOnePoint)
-		toolbox.register("expr_mut", deap.gp.genFull, min_=0, max_=self.TreeMaximumHeight)
+		toolbox.register("expr_mut", deap.gp.genFull, min_=0, max_=self.MaximumInitIndividuals)
 		toolbox.register("mutate", deap.gp.mutUniform, expr=toolbox.expr_mut, pset=primitive_set)
 
 		population = toolbox.population(n=self.PopulationSize)
